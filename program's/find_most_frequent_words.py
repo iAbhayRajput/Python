@@ -21,19 +21,19 @@ def find_most_frequent_words(filename):
             else:
                 word_counts[word] = 1
 
-        # Find the most frequent words.
-        most_frequent_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
+        # Find the most frequent word and its frequency.
+        most_frequent_word = max(word_counts, key=word_counts.get)
+        frequency = word_counts[most_frequent_word]
 
-        # Print the most frequent words.
-        print("The most frequent words in the text file are:")
-        for word in most_frequent_words:
-            print(word)
+        # Print the most frequent word and its frequency.
+        print("The most frequent word in the text file is '{}' with a frequency of {}.".format(most_frequent_word, frequency))
 
-        return most_frequent_words
+        return most_frequent_word, frequency
 
     except FileNotFoundError:
         print(f"Error: File '{filename}' not found.")
-        return []
+        return None, None
+
 
 def main():
     # Prompt the user to input the filename.
