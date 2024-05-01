@@ -52,6 +52,30 @@ def manipulate_arrays(a, b):
     print("Flattened 2D Array:")
     print(e)
 
+    # Slicing
+    start = int(input("Enter the starting index for slicing (1D array): "))
+    end = int(input("Enter the ending index for slicing (1D array): "))
+    print("Sliced 1D Array:", a[start:end])
+
+    start_row = int(input("Enter the starting row index for slicing (2D array): "))
+    end_row = int(input("Enter the ending row index for slicing (2D array): "))
+    start_col = int(input("Enter the starting column index for slicing (2D array): "))
+    end_col = int(input("Enter the ending column index for slicing (2D array): "))
+    print("Sliced 2D Array:")
+    print(b[start_row:end_row, start_col:end_col])
+
+    # Concatenating arrays
+    concat_choice = input("Do you want to concatenate another 2D array? (yes/no): ")
+    if concat_choice.lower() == "yes":
+        another_b = create_2d_array()
+        combined_b = np.concatenate((b, another_b), axis=0)
+        print("Combined 2D Arrays (along rows):")
+        print(combined_b)
+
+    # Finding unique elements
+    unique_elements = np.unique(b)
+    print("Unique elements in the 2D array:", unique_elements)
+
 def main():
     # Create 1D and 2D arrays
     a = create_1d_array()
